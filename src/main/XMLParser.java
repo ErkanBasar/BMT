@@ -1,6 +1,7 @@
 package main;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -12,6 +13,7 @@ import javax.xml.xpath.XPathExpressionException;
 import nlp.FunctionWords;
 import nlp.OpenTokenizer;
 import nlp.StanfordLemmatizer;
+import nlp.ZemberekStemmer;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -29,6 +31,10 @@ public class XMLParser {
 		Document doc = XPaths.docFactory(inputfile);
 
 		HashMap<String, Set<String>> hash = new HashMap<>();
+		
+		List<String> puretokens = new ArrayList<String>();
+		List<String> tokenlist = new ArrayList<String>();
+		List<String> stems = new ArrayList<String>();
 
 		Double count1 = XPaths.xpathCounter(doc, "count(/article/pr)");
 
@@ -41,49 +47,38 @@ public class XMLParser {
 				String sid = "s" + pr + "." + j;
 
 				NodeList nodes = XPaths.xpathCompiler(doc, "/article/pr[" + pr+ "]/s[" + j + "]/text/text()");
+				
 
 				if (lang == "en") {
 
-					List<String> tokenlist = slem.lemmatize(nodes.item(0).getNodeValue().toLowerCase());
+					tokenlist = slem.lemmatize(nodes.item(0).getNodeValue().toLowerCase());
 					
-					List<String> puretokens = FunctionWords.remove(tokenlist, lang);
-
-					for (String token : puretokens) {
-
-						Set<String> list = new HashSet<String>();
-
-						if (hash.containsKey(token)) {
-							Set<String> list2 = hash.get(token);
-							list2.add(sid);
-						} else {
-							list.add(sid);
-							hash.put(token, list);
-						}
-
-					}
+					puretokens = FunctionWords.remove(tokenlist, lang);
 					
 				}
 				
 				else if(lang == "tr"){
 					
-					List<String> tokens = OpenTokenizer.Tokenize(nodes.item(0).getNodeValue().toLowerCase());
+					tokenlist = OpenTokenizer.Tokenize(nodes.item(0).getNodeValue().toLowerCase());
 					
-					List<String> puretokens = FunctionWords.remove(tokens, lang);
+					stems = ZemberekStemmer.stem(tokenlist);
+					
+					puretokens = FunctionWords.remove(stems, lang);
+					
+				}
 
-					for (String token : puretokens) {
+				for (String token : puretokens) {
+				
+					Set<String> list = new HashSet<String>();
 
-						Set<String> list = new HashSet<String>();
-
-						if (hash.containsKey(token)) {
-							Set<String> list2 = hash.get(token);
-							list2.add(sid);
-						} else {
-							list.add(sid);
-							hash.put(token, list);
-						}
-
+					if (hash.containsKey(token)) {
+						Set<String> list2 = hash.get(token);
+						list2.add(sid);
+					} else {
+						list.add(sid);
+						hash.put(token, list);
 					}
-					
+
 				}
 
 			}

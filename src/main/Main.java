@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) throws XPathExpressionException,
 			SAXException, IOException, ParserConfigurationException {
 
-		fileChooser(1, 3);
+		fileChooser(3, 3);
 
 		System.out.println("Done");
 
@@ -33,7 +33,7 @@ public class Main {
 
 		for (int i = first; i <= last; i++) {
 
-			for (String lang : langs) {
+			for(String lang : langs){
 
 				inputfile = "../TepacDocs/corpora/article" + i + "_" + lang + ".xml";
 				outputfile = "../TepacDocs/hashes/article" + i + "_" + lang	+ "_hash.txt";
