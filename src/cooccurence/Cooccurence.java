@@ -68,8 +68,6 @@ public class Cooccurence {
 			}
 		}
 
-		System.out.println("Done");
-
 		PrintMaps.printCoocMap(hashresult, outputfile, outputhash);
 
 	}

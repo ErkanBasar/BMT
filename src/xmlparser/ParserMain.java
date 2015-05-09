@@ -16,8 +16,6 @@ public class ParserMain {
 
 		fileChooser(1, 3);
 
-		System.out.println("Done");
-
 	}
 
 	public static void fileChooser(int first, int last) throws IOException,
@@ -28,9 +26,9 @@ public class ParserMain {
 		langs.add("en");
 		langs.add("tr");
 
-		String inputfile = " ";
-		String outputfile = " ";
-		String outputhash = " ";
+		String inputfile;
+		String outputfile;
+		String outputhash;
 
 		for (int i = first; i <= last; i++) {
 
@@ -38,18 +36,16 @@ public class ParserMain {
 
 				inputfile = "../TepacDocs/corpora/article" + i + "_" + lang + ".xml";
 				
-				outputfile = "../TepacDocs/xmlparsed/texts/article" + i + "_" + lang	+ "_hash.txt";
+				outputfile = "../TepacDocs/xmlparsed/texts/article" + i + "_" + lang + "_hash.txt";
 				
 				outputhash = "../TepacDocs/xmlparsed/maps/article" + i + "_" + lang	+ "_hashmap.ser";
-
-				System.out.println(inputfile);
-				System.out.println(outputfile);
-				System.out.println(outputhash);
 
 				XMLtoHash.parser(inputfile, outputfile, outputhash, lang);
 
 			}
 		}
+		
+		System.out.println("All corpora(xml) parsed as hashmaps");
 
 	}
 
