@@ -12,7 +12,7 @@ public class Translator {
 	public static String translate(String input) throws ClassNotFoundException,
 			IOException {
 		
-		SortedMap<String, HashMap<String, Integer>> totalhash = ReadMaps.coocHashReader("../TepacDocs/totalhash.ser");
+		SortedMap<String, HashMap<String, Integer>> totalhash = ReadMaps.coocHashReader("../BMTDocs/totalhash.ser");
 		
 		if (totalhash.containsKey(input)) {
 

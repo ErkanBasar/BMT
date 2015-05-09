@@ -34,11 +34,11 @@ public class ParserMain {
 
 			for(String lang : langs){
 
-				inputfile = "../TepacDocs/corpora/article" + i + "_" + lang + ".xml";
+				inputfile = "../BMTDocs/corpora/article" + i + "_" + lang + ".xml";
 				
-				outputfile = "../TepacDocs/xmlparsed/texts/article" + i + "_" + lang + "_hash.txt";
+				outputfile = "../BMTDocs/xmlparsed/texts/article" + i + "_" + lang + "_hash.txt";
 				
-				outputhash = "../TepacDocs/xmlparsed/maps/article" + i + "_" + lang	+ "_hashmap.ser";
+				outputhash = "../BMTDocs/xmlparsed/maps/article" + i + "_" + lang	+ "_hashmap.ser";
 
 				XMLtoHash.parser(inputfile, outputfile, outputhash, lang);
 

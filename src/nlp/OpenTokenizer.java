@@ -15,7 +15,7 @@ public class OpenTokenizer {
 	
 	public static List<String> Tokenize(String sentence) throws InvalidFormatException, IOException {
 		
-		InputStream is = new FileInputStream("../TepacDocs/models/en-token.bin");
+		InputStream is = new FileInputStream("../BMTDocs/models/en-token.bin");
 	 
 		TokenizerModel model = new TokenizerModel(is);
 	 

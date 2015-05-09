@@ -31,24 +31,24 @@ public class CoocMain {
 		for (int i = first; i <= last; i++) {
 			
 
-			inputfile1 = "../TepacDocs/xmlparsed/maps/article" + i + "_en_hashmap.ser";
+			inputfile1 = "../BMTDocs/xmlparsed/maps/article" + i + "_en_hashmap.ser";
 			
-			inputfile2 = "../TepacDocs/xmlparsed/maps/article" + i + "_tr_hashmap.ser";
+			inputfile2 = "../BMTDocs/xmlparsed/maps/article" + i + "_tr_hashmap.ser";
 
-			outputfile = "../TepacDocs/coocurence/texts/article" + i + "_en_tr_hash_RESULT.txt";
+			outputfile = "../BMTDocs/coocurence/texts/article" + i + "_en_tr_hash_RESULT.txt";
 			
-			outputhash = "../TepacDocs/coocurence/maps/article" + i + "_en_tr_hashmap_RESULT.ser";
+			outputhash = "../BMTDocs/coocurence/maps/article" + i + "_en_tr_hashmap_RESULT.ser";
 
 			Cooccurence.findCooc(inputfile1, inputfile2, outputfile, outputhash);
 			
 
-			inputfile1 = "../TepacDocs/xmlparsed/maps/article" + i + "_tr_hashmap.ser";
+			inputfile1 = "../BMTDocs/xmlparsed/maps/article" + i + "_tr_hashmap.ser";
 			
-			inputfile2 = "../TepacDocs/xmlparsed/maps/article" + i + "_en_hashmap.ser";
+			inputfile2 = "../BMTDocs/xmlparsed/maps/article" + i + "_en_hashmap.ser";
 
-			outputfile = "../TepacDocs/coocurence/texts/article" + i + "_tr_en_hash_RESULT.txt";
+			outputfile = "../BMTDocs/coocurence/texts/article" + i + "_tr_en_hash_RESULT.txt";
 			
-			outputhash = "../TepacDocs/coocurence/maps/article" + i + "_tr_en_hashmap_RESULT.ser";
+			outputhash = "../BMTDocs/coocurence/maps/article" + i + "_tr_en_hashmap_RESULT.ser";
 			
 			Cooccurence.findCooc(inputfile1, inputfile2, outputfile, outputhash);
 			

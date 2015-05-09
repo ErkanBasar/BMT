@@ -20,17 +20,17 @@ public class HashCombine {
 	
 	public static void combineHashes() throws IOException, ClassNotFoundException{
 		
-		SortedMap<String, HashMap<String, Integer>> ar1entr = ReadMaps.coocHashReader("../TepacDocs/coocurence/maps/article1_en_tr_hashmap_RESULT.ser");
+		SortedMap<String, HashMap<String, Integer>> ar1entr = ReadMaps.coocHashReader("../BMTDocs/coocurence/maps/article1_en_tr_hashmap_RESULT.ser");
 
-		//SortedMap<String, HashMap<String, Integer>> ar1tren = ReadMaps.coocHashReader("../TepacDocs/coocurence/maps/article1_tr_en_hashmap_RESULT.ser");
+		//SortedMap<String, HashMap<String, Integer>> ar1tren = ReadMaps.coocHashReader("../BMTDocs/coocurence/maps/article1_tr_en_hashmap_RESULT.ser");
 
-		SortedMap<String, HashMap<String, Integer>> ar2entr = ReadMaps.coocHashReader("../TepacDocs/coocurence/maps/article2_en_tr_hashmap_RESULT.ser");
+		SortedMap<String, HashMap<String, Integer>> ar2entr = ReadMaps.coocHashReader("../BMTDocs/coocurence/maps/article2_en_tr_hashmap_RESULT.ser");
 
-		SortedMap<String, HashMap<String, Integer>> ar2tren = ReadMaps.coocHashReader("../TepacDocs/coocurence/maps/article2_tr_en_hashmap_RESULT.ser");
+		SortedMap<String, HashMap<String, Integer>> ar2tren = ReadMaps.coocHashReader("../BMTDocs/coocurence/maps/article2_tr_en_hashmap_RESULT.ser");
 
-		SortedMap<String, HashMap<String, Integer>> ar3entr = ReadMaps.coocHashReader("../TepacDocs/coocurence/maps/article3_en_tr_hashmap_RESULT.ser");
+		SortedMap<String, HashMap<String, Integer>> ar3entr = ReadMaps.coocHashReader("../BMTDocs/coocurence/maps/article3_en_tr_hashmap_RESULT.ser");
 
-		SortedMap<String, HashMap<String, Integer>> ar3tren = ReadMaps.coocHashReader("../TepacDocs/coocurence/maps/article3_tr_en_hashmap_RESULT.ser");
+		SortedMap<String, HashMap<String, Integer>> ar3tren = ReadMaps.coocHashReader("../BMTDocs/coocurence/maps/article3_tr_en_hashmap_RESULT.ser");
 
 		
 		SortedMap<String, HashMap<String, Integer>> totalhash = new TreeMap<String, HashMap<String, Integer>>();
@@ -42,7 +42,11 @@ public class HashCombine {
 		totalhash.putAll(ar3entr);
 		totalhash.putAll(ar3tren);
 		
-		PrintMaps.printCoocMap(totalhash, "../TepacDocs/totalhash.txt", "../TepacDocs/totalhash.ser");
+		
+		String outputfile = "../BMTDocs/totalhash.txt";
+		String outputhash = "../BMTDocs/totalhash.ser";
+		
+		PrintMaps.printCoocMap(totalhash, outputfile, outputhash);
 		
 		
 		System.out.println("All hashmaps are combined in totalhash.ser");

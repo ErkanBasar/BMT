@@ -12,9 +12,9 @@ public class FunctionWords {
 	
 	public static List<String> remove(List<String> tokens, String lang) throws IOException{
 		
-		String funcwordsfile = "../TepacDocs/funcwords/functionwords_" + lang + ".txt";
+		String funcwordsfile = "../BMTDocs/funcwords/functionwords_" + lang + ".txt";
 		
-		String punctuationfile = "../TepacDocs/funcwords/punctuations.txt";
+		String punctuationfile = "../BMTDocs/funcwords/punctuations.txt";
 		
 		List<String> funcWordsList = LineReader.readLines(funcwordsfile);
 		
