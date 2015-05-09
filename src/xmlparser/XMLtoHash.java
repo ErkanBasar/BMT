@@ -1,4 +1,4 @@
-package hashcreator;
+package xmlparser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,10 +20,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class XMLParser {
+import common.PrintMaps;
+
+public class XMLtoHash {
 
 	
-	public static SortedMap<String, Set<String>> parser(String inputfile, String outputfile, String outputhash, String lang)
+	public static void  parser(String inputfile, String outputfile, String outputhash, String lang)
 			throws XPathExpressionException, SAXException, IOException,
 			ParserConfigurationException {
 		
@@ -87,9 +89,7 @@ public class XMLParser {
 
 		}
 
-		PrintMap.printMap(hash, outputfile, outputhash);
-
-		return hash;
+		PrintMaps.printParsedMap(hash, outputfile, outputhash);
 
 	}
 

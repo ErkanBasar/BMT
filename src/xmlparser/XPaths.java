@@ -1,4 +1,4 @@
-package hashcreator;
+package xmlparser;
 
 import java.io.IOException;
 
