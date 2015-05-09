@@ -1,11 +1,12 @@
-package main;
+package hashcreator;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
@@ -22,7 +23,7 @@ import org.xml.sax.SAXException;
 public class XMLParser {
 
 	
-	public static HashMap<String, Set<String>> parser(String inputfile, String outputfile, String lang)
+	public static SortedMap<String, Set<String>> parser(String inputfile, String outputfile, String outputhash, String lang)
 			throws XPathExpressionException, SAXException, IOException,
 			ParserConfigurationException {
 		
@@ -30,7 +31,7 @@ public class XMLParser {
 
 		Document doc = XPaths.docFactory(inputfile);
 
-		HashMap<String, Set<String>> hash = new HashMap<>();
+		SortedMap<String, Set<String>> hash = new TreeMap<String, Set<String>>();
 		
 		List<String> puretokens = new ArrayList<String>();
 		List<String> tokenlist = new ArrayList<String>();
@@ -66,9 +67,10 @@ public class XMLParser {
 					puretokens = FunctionWords.remove(stems, lang);
 					
 				}
+				
 
 				for (String token : puretokens) {
-				
+					
 					Set<String> list = new HashSet<String>();
 
 					if (hash.containsKey(token)) {
@@ -85,7 +87,7 @@ public class XMLParser {
 
 		}
 
-		PrintMap.printMap(hash, outputfile);
+		PrintMap.printMap(hash, outputfile, outputhash);
 
 		return hash;
 

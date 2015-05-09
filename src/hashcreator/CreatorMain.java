@@ -1,4 +1,4 @@
-package main;
+package hashcreator;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,12 +9,12 @@ import javax.xml.xpath.XPathExpressionException;
 
 import org.xml.sax.SAXException;
 
-public class Main {
+public class CreatorMain {
 
 	public static void main(String[] args) throws XPathExpressionException,
 			SAXException, IOException, ParserConfigurationException {
 
-		fileChooser(3, 3);
+		fileChooser(1, 3);
 
 		System.out.println("Done");
 
@@ -30,6 +30,7 @@ public class Main {
 
 		String inputfile = " ";
 		String outputfile = " ";
+		String outputhash = " ";
 
 		for (int i = first; i <= last; i++) {
 
@@ -37,11 +38,13 @@ public class Main {
 
 				inputfile = "../TepacDocs/corpora/article" + i + "_" + lang + ".xml";
 				outputfile = "../TepacDocs/hashes/article" + i + "_" + lang	+ "_hash.txt";
+				outputhash = "../TepacDocs/hashmaps/article" + i + "_" + lang	+ "_hashmap.ser";
 
 				System.out.println(inputfile);
 				System.out.println(outputfile);
+				System.out.println(outputhash);
 
-				XMLParser.parser(inputfile, outputfile, lang);
+				XMLParser.parser(inputfile, outputfile, outputhash, lang);
 
 			}
 		}

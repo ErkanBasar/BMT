@@ -1,4 +1,4 @@
-package main;
+package hashcreator;
 
 import java.io.IOException;
 
