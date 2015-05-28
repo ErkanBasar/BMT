@@ -1,4 +1,6 @@
-package cooccurence;
+package cooccurrence;
+
+import io.HashCombine;
 
 import java.io.IOException;
 
@@ -12,9 +14,9 @@ public class CoocMain {
 	public static void main(String[] args) throws XPathExpressionException,
 			SAXException, IOException, ParserConfigurationException, ClassNotFoundException {
 
-		fileChooser(1, 3);
+		fileChooser(3, 3);
 		
-		HashCombine.combineHashes();
+		HashCombine.combineCooc(3, 3);
 
 	}
 
@@ -39,7 +41,7 @@ public class CoocMain {
 			
 			outputhash = "../BMTDocs/coocurence/maps/article" + i + "_en_tr_hashmap_RESULT.ser";
 
-			Cooccurence.findCooc(inputfile1, inputfile2, outputfile, outputhash);
+			Cooccurrence.findCooc(inputfile1, inputfile2, outputfile, outputhash);
 			
 
 			inputfile1 = "../BMTDocs/xmlparsed/maps/article" + i + "_tr_hashmap.ser";
@@ -50,7 +52,7 @@ public class CoocMain {
 			
 			outputhash = "../BMTDocs/coocurence/maps/article" + i + "_tr_en_hashmap_RESULT.ser";
 			
-			Cooccurence.findCooc(inputfile1, inputfile2, outputfile, outputhash);
+			Cooccurrence.findCooc(inputfile1, inputfile2, outputfile, outputhash);
 			
 		
 

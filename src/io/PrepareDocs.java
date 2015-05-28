@@ -1,15 +1,13 @@
-package translator;
+package io;
 
 import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 
-import org.xml.sax.SAXException;
+import occurrences.OccurMain;
 
-import xmlparser.ParserMain;
-import cooccurence.CoocMain;
-import cooccurence.HashCombine;
+import org.xml.sax.SAXException;
 
 public class PrepareDocs {
 	
@@ -20,11 +18,10 @@ public class PrepareDocs {
 		int last = 3;
 		
 		
-		ParserMain.fileChooser(first, last);
+		OccurMain.fileChooser(first, last);
 		
-		CoocMain.fileChooser(first, last);
+		HashCombine.combineOccur(first, last);
 		
-		HashCombine.combineHashes();
 		
 	}
 

@@ -2,6 +2,7 @@ package translator;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Set;
 
 public class TranslatorMain {
 
@@ -12,12 +13,18 @@ public class TranslatorMain {
 
 		System.out.println("Enter a word : ");
 
-		String input = in.nextLine();
+		String input = in.nextLine().toLowerCase();
 
-		String translation = Translator.translate(input);
+		Set<String> translations = Translator.translate(input);
 
-		if(translation!= null){
-			System.out.println("translation  : " + translation);
+		if(translations!= null){
+			
+			System.out.println("Possible Translations  ; ");
+			
+			for(String word : translations){
+				System.out.println(word);
+			}
+			
 		}else{
 			System.out.println("Not exist in our dictionary, try another word");
 		}

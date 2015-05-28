@@ -1,4 +1,4 @@
-package xmlparser;
+package occurrences;
 
 import java.io.IOException;
 

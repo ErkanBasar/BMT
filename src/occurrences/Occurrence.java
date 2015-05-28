@@ -1,4 +1,6 @@
-package xmlparser;
+package occurrences;
+
+import io.PrintMaps;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,11 +22,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import common.PrintMaps;
+public class Occurrence {
 
-public class XMLtoHash {
-
-	
 	public static void  parser(String inputfile, String outputfile, String outputhash, String lang)
 			throws XPathExpressionException, SAXException, IOException,
 			ParserConfigurationException {
@@ -89,7 +88,7 @@ public class XMLtoHash {
 
 		}
 
-		PrintMaps.printParsedMap(hash, outputfile, outputhash);
+		PrintMaps.printOccurMap(hash, outputfile, outputhash);
 
 	}
 
